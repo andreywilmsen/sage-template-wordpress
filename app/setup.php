@@ -84,7 +84,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'top_menu' => __('Menu topo', 'sage'),
     ]);
 
     /**
@@ -128,6 +128,15 @@ add_action('after_setup_theme', function () {
         'search-form',
         'script',
         'style',
+    ]);
+
+    add_theme_support('custom-logo', [
+        'height'               => 100,
+        'width'                => 400,
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'header-text'          => ['site-title', 'site-description'],
+        'unlink-homepage-logo' => true,
     ]);
 
     /**
