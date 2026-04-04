@@ -100,6 +100,9 @@
         </div>
     </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="close-menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
         <div class="mobile-menu-content">
             @if (has_nav_menu('top_menu'))
                 {!! wp_nav_menu([
