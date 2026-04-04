@@ -170,3 +170,64 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+/**
+ * Register the theme customizer settings.
+ */
+function custom_register($wp_customize)
+{
+    $wp_customize->add_panel('header_customize', [
+        'title'    => 'Configurações de Cabeçalho',
+        'priority' => 30
+    ]);
+
+    $wp_customize->add_section('contact_bar', [
+        'title' => 'Barra de Contatos',
+        'panel' => 'header_customize'
+    ]);
+
+    $wp_customize->add_section('menu_bar', [
+        'title' => 'Barra de Menu',
+        'panel' => 'header_customize'
+    ]);
+
+    $fields = [
+        'whatsapp_link' => ['Link para Whatsapp', 'contact_bar', 'url', ''],
+        'instagram_link' => ['Link para Instagram', 'contact_bar', 'url', ''],
+        'facebook_link' => ['Link para Facebook', 'contact_bar', 'url', ''],
+        'telefone' => ['Telefone', 'contact_bar', 'text', ''],
+        'email' => ['Email', 'contact_bar', 'email', ''],
+
+        'cor_barra_contato' => ['Cor da barra', 'contact_bar', 'color', '#1D2327'],
+        'cor_hover_links_contato' => ['Cor hover links', 'contact_bar', 'color', '#B59C6C'],
+        'cor_texto_contato' => ['Cor textos', 'contact_bar', 'color', '#ededed'],
+
+        'cor_barra_menu' => ['Cor da barra', 'menu_bar', 'color', '#FCFCFC'],
+        'cor_hover_links_menu' => ['Cor hover links', 'menu_bar', 'color', '#B59C6C'],
+        'cor_texto_menu' => ['Cor textos', 'contact_bar', 'color', '#000000'],
+        'texto_botao_contato' => ['Texto botão fale conosco', 'menu_bar', 'text', 'Fale Conosco'],
+        'cor_texto_botao_contato_menu' => ['Cor texto botão contato', 'menu_bar', 'color', '#FFFFF5'],
+        'cor_fundo_botao_contato_menu' => ['Cor textos', 'menu_bar', 'color', '#AB8E58'],
+
+    ];
+    foreach ($fields as $id => $data) {
+        $wp_customize->add_setting($id, [
+            'default' => $data[3],
+            'sanitize_callback' => ($data[2] === 'color') ? 'sanitize_hex_color' : 'sanitize_text_field'
+        ]);
+
+        if ($data[2] === 'color') {
+            $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, $id, [
+                'label' => $data[0],
+                'section' => $data[1],
+            ]));
+        } else {
+            $wp_customize->add_control($id, [
+                'label' => $data[0],
+                'section' => $data[1],
+                'type' => $data[2],
+            ]);
+        }
+    }
+}
+add_action('customize_register', __NAMESPACE__ . '\\custom_register');

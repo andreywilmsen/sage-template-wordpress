@@ -1,23 +1,64 @@
+@php
+    // Barra de contatos
+
+    $cor_barra_contato = get_theme_mod('cor_barra_contato');
+    $cor_hover_links = get_theme_mod('cor_hover_links_contato');
+    $cor_texto = get_theme_mod('cor_texto_contato');
+    // Barra de menu
+    $cor_barra_menu = get_theme_mod('cor_barra_menu');
+    $cor_hover_links_menu = get_theme_mod('cor_hover_links_menu');
+    $cor_texto_menu = get_theme_mod('cor_texto_menu');
+    $cor_texto_botao_contato_menu = get_theme_mod('cor_texto_botao_contato_menu');
+    $cor_fundo_botao_contato_menu = get_theme_mod('cor_fundo_botao_contato_menu');
+
+@endphp
+
+<style>
+    :root {
+        /* Barra de contato */
+        --cor-barra-contato: {{ $cor_barra_contato }};
+        --cor-hover-links: {{ $cor_hover_links }};
+        --cor-texto: {{ $cor_texto }};
+        /* Barra de menu */
+        --cor-barra-menu: {{ $cor_barra_menu }};
+        --cor-hover-links-menu: {{ $cor_hover_links_menu }};
+        --cor-texto-menu: {{ $cor_texto_menu }};
+        --cor-texto-botao-contato-menu: {{ $cor_texto_botao_contato_menu }};
+        --cor-fundo-botao-contato-menu: {{ $cor_fundo_botao_contato_menu }}
+    }
+</style>
+
 <header id="masthead">
     <div class="container-fluid contact-bar d-none d-md-block">
         <div class="row h-100 align-items-center">
             <div class="col-6 d-flex justify-content-start contact-links-top">
-                <span><i class="fa-solid fa-phone"></i> (51) 99999-9999</span>
-                <a href="mailto:contato@veredict.com.br">
-                    <i class="fa-solid fa-envelope"></i> contato@veredict.com.br
-                </a>
+                @if ($telefone)
+                    <a href="tel:{{ $telefone_link }}" class="mobile-contact-item">
+                        <i class="fa-solid fa-phone"></i> {{ $telefone }}
+                    </a>
+                @endif
+                @if ($email)
+                    <a href="mailto:{{ $email }}"><i class="fa-solid fa-envelope"></i>{{ $email }}</a>
+                @endif
             </div>
             <div class="col-6 d-flex justify-content-end social-links-top">
-                <span class="social-label">Siga-nos:</span>
-                <div class="icons-wrapper">
-                    <a href="#" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                </div>
+                @if ($whatsapp_link || $instagram_link || $facebook_link)
+                    <span class="social-label">Siga-nos:</span>
+                    <div class="icons-wrapper">
+                        @if ($whatsapp_link)
+                            <a href="{{ $whatsapp_link }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        @endif
+                        @if ($instagram_link)
+                            <a href="{{ $instagram_link }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        @endif
+                        @if ($facebook_link)
+                            <a href="{{ $facebook_link }}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
     </div>
-
     <div class="content-masthead">
         <div class="container-fluid">
             <div class="row h-100 align-items-center">
@@ -30,7 +71,6 @@
                         @endif
                     </div>
                 </div>
-
                 <div class="col-md-4 d-none d-md-flex justify-content-center">
                     <div class="nav-primary">
                         @if (has_nav_menu('top_menu'))
@@ -44,12 +84,12 @@
                         @endif
                     </div>
                 </div>
-
                 <div class="col-6 col-md-4 d-flex justify-content-end align-items-center gap-3">
                     <div class="contact-button-masthead d-none d-lg-block">
-                        <button>Fale conosco</button>
+                        <a href="{{ home_url('/contato') }}" class="btn-custom">
+                            {{ $botao_contato }}
+                        </a>
                     </div>
-
                     <button class="mobile-toggle d-md-none" id="mobile-menu-trigger">
                         <span></span>
                         <span></span>
@@ -59,7 +99,6 @@
             </div>
         </div>
     </div>
-
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
         <div class="mobile-menu-content">
             @if (has_nav_menu('top_menu'))
@@ -72,14 +111,23 @@
 
             <div class="mobile-extra-info">
                 <hr>
-                <a href="tel:51999999999" class="mobile-contact-item">
-                    <i class="fa-solid fa-phone"></i> (51) 99999-9999
-                </a>
-                <div class="mobile-social-icons">
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                </div>
+                @if ($telefone)
+                    <a href="tel:{!! $telefone !!}" class="mobile-contact-item"><i
+                            class="fa-solid fa-phone"></i>{!! $telefone !!}</a>
+                @endif
+                @if ($whatsapp_link || $instagram_link || $facebook_link)
+                    <div class="mobile-social-icons">
+                        @if ($whatsapp_link)
+                            <a href="{{ $whatsapp_link }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                        @endif
+                        @if ($instagram_link)
+                            <a href="{{ $instagram_link }}" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        @endif
+                        @if ($facebook_link)
+                            <a href="{{ $facebook_link }}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
     </div>

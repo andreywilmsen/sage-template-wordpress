@@ -22,8 +22,8 @@
     .contact-bar {
         width: 100%;
         height: 35px;
-        background-color: $masthead_contact_bar_bg;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background-color: var(--cor-barra-contato);
 
         .social-links-top {
             display: flex;
@@ -32,7 +32,7 @@
             .social-label {
                 font-size: 10px;
                 font-weight: 500;
-                color: rgba($text_secondary, 0.7);
+                color: var(--cor-texto);
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 margin-right: 15px;
@@ -45,11 +45,11 @@
 
             a {
                 font-size: 16px;
-                color: rgba($text_secondary, 0.8);
+                color: var(--cor-texto);
                 transition: $transition;
 
                 &:hover {
-                    color: $color_primary;
+                    color: var(--cor-hover-links);
                     transform: translateY(-1px);
                 }
             }
@@ -63,7 +63,7 @@
             a {
                 font-size: 11px;
                 font-weight: 500;
-                color: rgba($text_secondary, 0.7);
+                color: var(--cor-texto);
                 text-transform: uppercase;
                 text-decoration: none;
                 display: inline-flex;
@@ -77,7 +77,7 @@
                 }
 
                 &:hover {
-                    color: $color_primary;
+                    color: var(--cor-hover-links);
                     transform: translateY(-1px);
                 }
             }
@@ -86,7 +86,7 @@
 
     /* MAIN HEADER */
     .content-masthead {
-        background-color: $bg_header !important;
+        background-color: var(--cor-barra-menu) !important;
         height: 110px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -128,7 +128,7 @@
                 font-size: 14px;
                 font-weight: 600;
                 text-transform: uppercase;
-                color: $text_primary;
+                color: var(--cor-texto-menu);
                 text-decoration: none;
                 position: relative;
                 padding: 8px 0;
@@ -140,13 +140,13 @@
                     left: 50%;
                     width: 0;
                     height: 2px;
-                    background: $color_primary;
+                    background: var(--cor-hover-links-menu);
                     transition: $transition;
                     transform: translateX(-50%);
                 }
 
                 &:hover {
-                    color: $color_primary;
+                    color: var(--cor-hover-links-menu);
 
                     &::after {
                         width: 100%;
@@ -159,10 +159,14 @@
             margin: 0px !important;
         }
 
-        .contact-button-masthead button {
+        .contact-button-masthead a {
+            text-decoration: none !important;
             padding: 12px 30px;
-            background: linear-gradient(135deg, $color_primary 0%, darken($color_primary, 8%) 100%);
-            color: #fff;
+            background: linear-gradient(135deg,
+                    var(--cor-fundo-botao-contato-menu) 0%,
+                    var(--cor-fundo-botao-contato-menu) 100%);
+            filter: brightness(0.92);
+            color: var(--cor-texto-botao-contato-menu);
             border: none;
             border-radius: $radius;
             font-weight: 700;
@@ -283,7 +287,7 @@
 
                     a {
                         font-size: 24px;
-                        color: $color_primary;
+                        color: var(--cor-hover-links);
                     }
                 }
             }
