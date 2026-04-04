@@ -34,7 +34,7 @@
 </style>
 
 <footer id="mastfooter" class="content-info container-fluid">
-    <div class="row align-items-center">
+    <div class="row">
         <div class="col-md-12 col-lg-4 footer-brand">
             @if (has_custom_logo())
                 {!! get_custom_logo() !!}
