@@ -8,7 +8,9 @@
     @php(wp_head())
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 </head>
@@ -22,12 +24,6 @@
         <main id="main" class="main">
             @yield('content')
         </main>
-
-        @hasSection('sidebar')
-            <aside class="sidebar">
-                @yield('sidebar')
-            </aside>
-        @endif
 
         @include('sections.footer')
     </div>

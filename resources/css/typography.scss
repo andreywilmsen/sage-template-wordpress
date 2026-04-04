@@ -1,0 +1,40 @@
+body,
+.contact-bar,
+.nav-links a,
+.sub-menu a,
+.breadcrumb-nav,
+.contact-button-masthead a,
+.footer-contact,
+.mobile-menu-overlay {
+    font-family: $font-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-text,
+.footer-title,
+.page-title h1 {
+    font-family: $font-titles;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.page-title h1 {
+    font-size: 32px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.footer-title {
+    font-size: 14px;
+    font-weight: $weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}

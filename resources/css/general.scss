@@ -1,0 +1,18 @@
+ .container-fluid {
+     padding-left: 3rem !important;
+     padding-right: 3rem !important;
+
+     @media (max-width: 768px) {
+         padding-left: 1.5rem !important;
+         padding-right: 1.5rem !important;
+     }
+ }
+
+ .container {
+     margin: 0px auto !important;
+ }
+
+ .row {
+     margin-left: 0;
+     margin-right: 0;
+ }

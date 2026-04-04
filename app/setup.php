@@ -177,6 +177,10 @@ add_action('widgets_init', function () {
  */
 function custom_register($wp_customize)
 {
+    $wp_customize->add_panel('general_customize', [
+        'title' => 'Configurações Gerais',
+        'priority' => 20
+    ]);
     $wp_customize->add_panel('header_customize', [
         'title'    => 'Configurações de Cabeçalho',
         'priority' => 30
@@ -186,6 +190,7 @@ function custom_register($wp_customize)
         'title' => 'Configurações de Rodapé',
         'priority' => 40
     ]);
+
 
     $wp_customize->add_section('contact_bar', [
         'title' => 'Barra de Contatos',
@@ -200,6 +205,11 @@ function custom_register($wp_customize)
     $wp_customize->add_section('footer_customize', [
         'title' => 'Configurações gerais',
         'panel' => 'footer_customize'
+    ]);
+
+    $wp_customize->add_section('page_customize', [
+        'title' => 'Configurações de páginas',
+        'panel' => 'general_customize'
     ]);
 
     $fields = [
@@ -217,24 +227,29 @@ function custom_register($wp_customize)
         'cor_texto_menu' => ['Cor textos', 'contact_bar', 'color', '#000000'],
         'texto_botao_contato' => ['Texto botão fale conosco', 'menu_bar', 'text', 'Fale Conosco'],
         'cor_texto_botao_contato_menu' => ['Cor texto botão contato', 'menu_bar', 'color', '#FFFFF5'],
-        'cor_fundo_botao_contato_menu' => ['Cor textos', 'menu_bar', 'color', '#AB8E58'],
+        'cor_fundo_botao_contato_menu' => ['Cor textos', 'menu_bar', 'color', '#B59C6C'],
         // Rodapé
         'cor_fundo_rodape' => ['Cor de fundo', 'footer_customize', 'color', '#1D2327'],
         'cor_titulos_rodape' => ['Cor dos títulos e Menu Pai', 'footer_customize', 'color', '#ffffff'],
-        'cor_hover_geral' => ['Cor de destaque (Hover)', 'footer_customize', 'color', '#DAA520'],
+        'cor_hover_geral' => ['Cor de destaque (Hover)', 'footer_customize', 'color', '#B59C6C'],
         'cor_texto_menu_filho' => ['Cor texto Filho', 'footer_customize', 'color', '#adb5bd'],
         'cor_hover_menu_filho' => ['Cor hover texto Filho', 'footer_customize', 'color', '#ffffff'],
         'cor_texto_menu_neto' => ['Cor texto Neto', 'footer_customize', 'color', '#adb5bd'],
         'cor_texto_contato' => ['Cor do texto contato', 'footer_customize', 'color', '#adb5bd'],
-        'cor_icone_contato' => ['Cor do ícone contato', 'footer_customize', 'color', '#DAA520'],
+        'cor_icone_contato' => ['Cor do ícone contato', 'footer_customize', 'color', '#B59C6C'],
         'cor_borda_circulo_contato' => ['Cor da borda do círculo', 'footer_customize', 'color', 'rgba(255,255,255,0.1)'],
         'cor_fundo_circulo_contato' => ['Cor de fundo do círculo', 'footer_customize', 'color', 'transparent'],
         'cor_hover_texto_contato' => ['Cor hover texto contato', 'footer_customize', 'color', '#ffffff'],
         'cor_hover_icone_contato' => ['Cor hover ícone contato', 'footer_customize', 'color', '#1D2327'],
-        'cor_hover_fundo_circulo_contato' => ['Cor hover fundo círculo', 'footer_customize', 'color', '#DAA520'],
+        'cor_hover_fundo_circulo_contato' => ['Cor hover fundo círculo', 'footer_customize', 'color', '#B59C6C'],
         'texto_titulo_contatos' => ['Título da coluna Contatos', 'footer_customize', 'text', 'Contatos'],
         'telefone_rodape' => ['Telefone', 'footer_customize', 'text', ''],
         'email_rodape' => ['Email', 'footer_customize', 'email', ''],
+        // Páginas
+        'cor_destaque_pagina' => ['Cores de destaque da página', 'page_customize', 'color', '#B59C6C'],
+        'cor_texto_page_header' => ['Cores dos textos do cabeçalho de página', 'page_customize', 'color', '#212529'],
+
+
     ];
     foreach ($fields as $id => $data) {
         $wp_customize->add_setting($id, [

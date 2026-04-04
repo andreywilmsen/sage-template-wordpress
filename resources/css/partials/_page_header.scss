@@ -1,0 +1,27 @@
+.page-header {
+    margin: 30px auto !important;
+    border-bottom: 2px dotted rgba(228, 228, 228, 0.253);
+    padding-bottom: 5px !important;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-size: 32px;
+        margin: 0px !important;
+        padding: 0px !important;
+        position: relative;
+        color: var(--color-text-page-header) !important;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 33.3%;
+            height: 4px;
+            background-color: var(--color-accent);
+            border-radius: 5px;
+        }
+    }
+}

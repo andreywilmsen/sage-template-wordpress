@@ -3,21 +3,6 @@
     position: relative;
     z-index: 1000;
 
-    .container-fluid {
-        padding-left: 3rem !important;
-        padding-right: 3rem !important;
-
-        @media (max-width: 768px) {
-            padding-left: 1.5rem !important;
-            padding-right: 1.5rem !important;
-        }
-    }
-
-    .row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
     /* CONTACT BAR */
     .contact-bar {
         width: 100%;
@@ -62,7 +47,7 @@
             span,
             a {
                 font-size: 11px;
-                font-weight: 500;
+                font-weight: $weight-medium;
                 color: var(--cor-texto);
                 text-transform: uppercase;
                 text-decoration: none;
@@ -126,7 +111,7 @@
 
             a {
                 font-size: 14px;
-                font-weight: 600;
+                font-weight: $weight_bold;
                 text-transform: uppercase;
                 color: var(--cor-texto-menu);
                 text-decoration: none;
@@ -169,7 +154,7 @@
             color: var(--cor-texto-botao-contato-menu);
             border: none;
             border-radius: $radius;
-            font-weight: 700;
+            font-weight: $weight-bold;
             text-transform: uppercase;
             font-size: 13px;
             cursor: pointer;
@@ -219,7 +204,7 @@
         }
     }
 
-.mobile-menu-overlay {
+    .mobile-menu-overlay {
         position: fixed;
         top: 0;
         left: 0;

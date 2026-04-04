@@ -1,17 +1,24 @@
 $color_primary: #b79e6f;
-$color_accent: #bbbbbb;
 $bg_header: #fcfcfc;
 $text_primary: black;
 $text_secondary: rgba(255, 255, 255, 0.8);
 $text_accent: #b79e6f;
 $masthead_contact_bar_bg: #1f1f1f;
 
-$font-family-serif: 'Playfair Display', serif;
-$font-family-sans: 'Montserrat', sans-serif;
-$font-family-base: $font-family-sans;
-$font-family-headings: $font-family-serif;
-$font-weight-normal: 400;
-$font-weight-bold: 700;
-
 $radius: 8px;
 $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+$font-family-serif: 'DM Serif Display', serif;
+$font-family-sans: 'Montserrat', sans-serif;
+
+$font-titles: $font-family-serif;
+$font-body: $font-family-sans;
+
+$weight-light: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-black: 800;
+
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$radius: 8px;
