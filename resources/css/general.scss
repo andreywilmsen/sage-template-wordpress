@@ -16,3 +16,10 @@
      margin-left: 0;
      margin-right: 0;
  }
+
+ @media (max-width: 991px) {
+     .container-page {
+         display: flex !important;
+         flex-direction: column !important;
+     }
+ }

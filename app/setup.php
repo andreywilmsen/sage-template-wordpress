@@ -202,7 +202,7 @@ function custom_register($wp_customize)
         'panel' => 'header_customize'
     ]);
 
-    $wp_customize->add_section('footer_customize', [
+    $wp_customize->add_section('footer_general_settings', [
         'title' => 'Configurações gerais',
         'panel' => 'footer_customize'
     ]);
@@ -229,27 +229,26 @@ function custom_register($wp_customize)
         'cor_texto_botao_contato_menu' => ['Cor texto botão contato', 'menu_bar', 'color', '#FFFFF5'],
         'cor_fundo_botao_contato_menu' => ['Cor textos', 'menu_bar', 'color', '#B59C6C'],
         // Rodapé
-        'cor_fundo_rodape' => ['Cor de fundo', 'footer_customize', 'color', '#1D2327'],
-        'cor_titulos_rodape' => ['Cor dos títulos e Menu Pai', 'footer_customize', 'color', '#ffffff'],
-        'cor_hover_geral' => ['Cor de destaque (Hover)', 'footer_customize', 'color', '#B59C6C'],
-        'cor_texto_menu_filho' => ['Cor texto Filho', 'footer_customize', 'color', '#adb5bd'],
-        'cor_hover_menu_filho' => ['Cor hover texto Filho', 'footer_customize', 'color', '#ffffff'],
-        'cor_texto_menu_neto' => ['Cor texto Neto', 'footer_customize', 'color', '#adb5bd'],
-        'cor_texto_contato' => ['Cor do texto contato', 'footer_customize', 'color', '#adb5bd'],
-        'cor_icone_contato' => ['Cor do ícone contato', 'footer_customize', 'color', '#B59C6C'],
-        'cor_borda_circulo_contato' => ['Cor da borda do círculo', 'footer_customize', 'color', 'rgba(255,255,255,0.1)'],
-        'cor_fundo_circulo_contato' => ['Cor de fundo do círculo', 'footer_customize', 'color', 'transparent'],
-        'cor_hover_texto_contato' => ['Cor hover texto contato', 'footer_customize', 'color', '#ffffff'],
-        'cor_hover_icone_contato' => ['Cor hover ícone contato', 'footer_customize', 'color', '#1D2327'],
-        'cor_hover_fundo_circulo_contato' => ['Cor hover fundo círculo', 'footer_customize', 'color', '#B59C6C'],
-        'texto_titulo_contatos' => ['Título da coluna Contatos', 'footer_customize', 'text', 'Contatos'],
-        'telefone_rodape' => ['Telefone', 'footer_customize', 'text', ''],
-        'email_rodape' => ['Email', 'footer_customize', 'email', ''],
+        'cor_fundo_rodape' => ['Cor de fundo', 'footer_general_settings', 'color', '#1D2327'],
+        'cor_titulos_rodape' => ['Cor dos títulos e Menu Pai', 'footer_general_settings', 'color', '#ffffff'],
+        'cor_hover_geral' => ['Cor de destaque (Hover)', 'footer_general_settings', 'color', '#B59C6C'],
+        'cor_texto_menu_filho' => ['Cor texto Filho', 'footer_general_settings', 'color', '#adb5bd'],
+        'cor_hover_menu_filho' => ['Cor hover texto Filho', 'footer_general_settings', 'color', '#ffffff'],
+        'cor_texto_menu_neto' => ['Cor texto Neto', 'footer_general_settings', 'color', '#adb5bd'],
+        'cor_texto_contato' => ['Cor do texto contato', 'footer_general_settings', 'color', '#adb5bd'],
+        'cor_icone_contato' => ['Cor do ícone contato', 'footer_general_settings', 'color', '#B59C6C'],
+        'cor_borda_circulo_contato' => ['Cor da borda do círculo', 'footer_general_settings', 'color', 'rgba(255,255,255,0.1)'],
+        'cor_fundo_circulo_contato' => ['Cor de fundo do círculo', 'footer_general_settings', 'color', 'transparent'],
+        'cor_hover_texto_contato' => ['Cor hover texto contato', 'footer_general_settings', 'color', '#ffffff'],
+        'cor_hover_icone_contato' => ['Cor hover ícone contato', 'footer_general_settings', 'color', '#1D2327'],
+        'cor_hover_fundo_circulo_contato' => ['Cor hover fundo círculo', 'footer_general_settings', 'color', '#B59C6C'],
+        'texto_titulo_contatos' => ['Título da coluna Contatos', 'footer_general_settings', 'text', 'Contatos'],
+        'telefone_rodape' => ['Telefone', 'footer_general_settings', 'text', ''],
+        'email_rodape' => ['Email', 'footer_general_settings', 'email', ''],
         // Páginas
         'cor_destaque_pagina' => ['Cores de destaque da página', 'page_customize', 'color', '#B59C6C'],
         'cor_texto_page_header' => ['Cores dos textos do cabeçalho de página', 'page_customize', 'color', '#212529'],
-
-
+        'cor_destaque_side_news' => ['Cor de destaque dos posts laterais', 'page_customize', 'color', '#B59C6C'],
     ];
     foreach ($fields as $id => $data) {
         $wp_customize->add_setting($id, [

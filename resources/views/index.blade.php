@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid section-page">
         @include('partials.page-header')
-        <div class="row container">
+        <div class="row container container-page">
             <div class="col-sm-12 col-md-9 section-content">
 
                 @if (!have_posts())
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <aside class="col-sm-12 col-md-3">
+            <aside class="col-sm-12 col-lg-3">
                 @include('sections.sidebar')
             </aside>
         </div>
